@@ -53,8 +53,7 @@ st.markdown(f"""
         border-radius:12px; font-size:0.75rem; font-weight:600; margin-left:8px;
     }}
     
-    /* ── 1. Code Block Background (Data & Model paths) ── */
-    /* Targets the stCodeBlock wrapper AND the native HTML tags to force dark gray */
+    /* ── 1. Code Block Background ── */
     section[data-testid="stSidebar"] [data-testid="stCodeBlock"],
     section[data-testid="stSidebar"] [data-testid="stCodeBlock"] > div,
     section[data-testid="stSidebar"] pre, 
@@ -64,14 +63,15 @@ st.markdown(f"""
         border: none !important;
     }}
 
-    /* ── 2. Number Input Text Boxes ── */
-    section[data-testid="stSidebar"] div[data-baseweb="input"], 
-    section[data-testid="stSidebar"] div[data-baseweb="base-input"] {{
+    /* ── 2. Number Input Text Boxes (FIXED FOR LIGHT THEME) ── */
+    section[data-testid="stSidebar"] [data-testid="stNumberInput"] [data-baseweb="input"], 
+    section[data-testid="stSidebar"] [data-testid="stNumberInput"] [data-baseweb="base-input"] {{
         background-color: #262730 !important;
         border-color: #3E404F !important;
     }}
+    /* Forces the exact text box to be dark grey instead of transparent */
     section[data-testid="stSidebar"] input {{
-        background-color: transparent !important;
+        background-color: #262730 !important;
         color: white !important;
         -webkit-text-fill-color: white !important;
     }}
@@ -81,7 +81,6 @@ st.markdown(f"""
         background-color: #3E404F !important;
         border-color: #3E404F !important;
     }}
-    /* Forces the actual plus/minus SVG icons to be white so they are visible */
     section[data-testid="stSidebar"] [data-testid="stNumberInput"] button svg {{
         fill: white !important;
         color: white !important;
